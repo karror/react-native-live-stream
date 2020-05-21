@@ -39,11 +39,11 @@
 - (id)init {
     self = [super init];
     if(self) {
-        _np = [[NodePlayer alloc] initWithPremium:@""];
+        _np = [[NodePlayer alloc] init]; //initWithPremium:@""
         [_np setPlayerView:self];
         _srcUrl = nil;
         _canSendStatusEvent = NO;
-        
+
         _np.nodePlayerDelegate = self;
     }
     return self;
@@ -69,7 +69,7 @@
 }
 
 -(void)setResizeMode:(NSString *)resizeMode {
-    
+
     int mode = UIViewContentModeScaleToFill;
     if([resizeMode isEqualToString:@"contain"]) {
         mode = UIViewContentModeScaleAspectFit;
@@ -90,19 +90,19 @@
 - (void)didSetProps:(NSArray<NSString *> *)changedProps
 {
     bool needStart = NO;
-    
+
     if ([changedProps containsObject:@"srcUrl"]) {
         // switch srcUrl need stop old srcUrl then start new one
         [_np stop];
         needStart = YES;
     }
-    
+
     if ([changedProps containsObject:@"resizeMode"]) {
         // after set resizeMode, not change immediately, so need stop then start...
         [_np stop:false];
         needStart = YES;
     }
-    
+
     if ([changedProps containsObject:@"paused"]) {
         if (_paused) {
             _canSendStatusEvent = YES;
@@ -115,7 +115,7 @@
             needStart = YES;
         }
     }
-    
+
     if (!_paused && needStart) {
         _canSendStatusEvent = NO;
         [_np start];
