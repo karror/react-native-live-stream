@@ -6,7 +6,7 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wonday/react-native-live-stream.git"
+        "url": "git+https://github.com/karror/react-native-live-stream.git"
     },
     "keywords": [
         "react-component",
@@ -18,16 +18,21 @@
         "livestream"
     ],
     "author": {
-        "name": "Wonday",
-        "url": "https://github.com/wonday"
+        "name": "karror",
+        "url": "https://github.com/karror"
     },
     "license": "MIT",
-    "homepage": "https://github.com/wonday/react-native-live-stream",
+    "homepage": "https://github.com/karror/react-native-live-stream",
     "bugs": {
-        "url": "https://github.com/wonday/react-native-live-stream/issues"
+        "url": "https://github.com/karror/react-native-live-stream/issues"
     },
     "dependencies": {
     },
     "peerDependencies": {
+      "react": "*",
+      "react-native": "*"
+    },
+    "publishConfig": {
+      "access": "public"
     }
 }
